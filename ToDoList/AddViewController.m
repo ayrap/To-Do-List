@@ -9,6 +9,7 @@
 #import "AddViewController.h"
 #import "ListTableViewController.h"
 #import "AppDelegate.h"
+#import "Utility.h"
 
 @interface AddViewController (){
     AppDelegate *appdelegate;
@@ -67,7 +68,7 @@
     ToDoItem *toDoItem = [[ToDoItem alloc] init];
     toDoItem.itemName = _itemTextField.text;
     toDoItem.itemDescription = _descriptionText.text;
-    toDoItem.itemDueDate = _dueDate.date.description;
+    toDoItem.itemDueDate = [Utility formatDate:_dueDate.date];
     toDoItem.completed = NO;
     
     [appdelegate.toDoItems addObject:toDoItem];
@@ -100,13 +101,13 @@
 }
 
 -(UILabel *)descriptionLabel{
-    _descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 70, 250, 20)];
+    _descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(_itemTextField.frame.origin.x, 70, 250, 20)];
     [_descriptionLabel setText: @"Description:"];
     return _descriptionLabel;
 }
 
 -(UITextView *)descriptionText{
-    _descriptionText = [[UITextView alloc] initWithFrame:CGRectMake(30, 100, 250, 60)];
+    _descriptionText = [[UITextView alloc] initWithFrame:CGRectMake(_descriptionLabel.frame.origin.x, 100, 250, 60)];
     _descriptionText.textColor = [UIColor colorWithRed:0/256.0 green:84/256.0 blue:129/256.0 alpha:1.0];
     _descriptionText.font = [UIFont fontWithName:@"Helvetica-Bold" size:13];
     _descriptionText.backgroundColor=[UIColor whiteColor];
@@ -119,7 +120,7 @@
 
 
 -(UILabel*)dueDateLabel{
-    _dueDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 170, 250, 20)];
+    _dueDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(_descriptionText.frame.origin.x, 170, 250, 20)];
     [_dueDateLabel setText: @"Due Date:"];
     return _dueDateLabel;
 }
@@ -136,7 +137,7 @@
                 action:@selector(clickButton:)
       forControlEvents:UIControlEventTouchDown];
     [_doneButton setTitle:@" Done " forState:UIControlStateNormal];
-    [_doneButton setFrame:CGRectMake(30, 390, 160, 40)];
+    [_doneButton setFrame:CGRectMake(_dueDateLabel.frame.origin.x, 390, 160, 40)];
     [_doneButton sizeToFit];
     [_doneButton setBackgroundColor:[UIColor blackColor]];
     [_doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

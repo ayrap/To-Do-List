@@ -78,7 +78,7 @@
 
 -(UITextField *)nameText{
     if(!_nameText){
-        _nameText = [[UITextField alloc] initWithFrame:CGRectMake(30, 140, 260, 40)];
+        _nameText = [[UITextField alloc] initWithFrame:CGRectMake(_nameLabel.frame.origin.x, 140, 260, 40)];
         _nameText.textColor = [UIColor colorWithRed:0/256.0 green:84/256.0 blue:129/256.0 alpha:1.0];
         _nameText.font = [UIFont fontWithName:@"Helvetica-Bold" size:14];
         _nameText.backgroundColor=[UIColor whiteColor];
@@ -100,7 +100,7 @@
                 action:@selector(clickButton:)
       forControlEvents:UIControlEventTouchDown];
         [_btn setTitle:@" Submit " forState:UIControlStateNormal];
-        [_btn setFrame:CGRectMake(30, 190, 260, 40)];
+        [_btn setFrame:CGRectMake(_nameText.frame.origin.x, 190, 260, 40)];
         [_btn setBackgroundColor:[UIColor blackColor]];
         [_btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_btn sizeToFit];

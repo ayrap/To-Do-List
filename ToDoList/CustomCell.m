@@ -30,7 +30,7 @@
         _descriptionLabel           = [[UILabel alloc] init];
         _descriptionLabel.textColor = [UIColor blackColor];
         _descriptionLabel.font      = [UIFont systemFontOfSize:12.0];
-        _descriptionLabel.frame     = CGRectMake(40, 25, 300, 15);
+        _descriptionLabel.frame     = CGRectMake(_nameLabel.frame.origin.x, 25, 300, 15);
     }
     return _descriptionLabel;
 }
@@ -42,7 +42,7 @@
         _dateLabel           = [[UILabel alloc] init];
         _dateLabel.textColor = [UIColor blackColor];
         _dateLabel.font      = [UIFont systemFontOfSize:12.0];
-        _dateLabel.frame     = CGRectMake(40, 40, 300, 15);
+        _dateLabel.frame     = CGRectMake(_descriptionLabel.frame.origin.x, 40, 300, 15);
     }
     return _dateLabel;
 }
