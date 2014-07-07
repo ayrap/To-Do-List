@@ -21,6 +21,21 @@
 		E671EBE919583AFC003102EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E671EBCB19583AFB003102EE /* UIKit.framework */; };
 		E671EBF119583AFC003102EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E671EBEF19583AFC003102EE /* InfoPlist.strings */; };
 		E671EBF319583AFC003102EE /* ToDoListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E671EBF219583AFC003102EE /* ToDoListTests.m */; };
+		E681642F196A99470050A16B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E681642D196A99470050A16B /* Default.png */; };
+		E6816430196A9A710050A16B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E681642C196A99470050A16B /* Default@2x.png */; };
+		E6816435196A9BF90050A16B /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E6816431196A9BF90050A16B /* Icon-Small@2x.png */; };
+		E6816436196A9BF90050A16B /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = E6816432196A9BF90050A16B /* Icon-76.png */; };
+		E6816437196A9BF90050A16B /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = E6816433196A9BF90050A16B /* Icon-60.png */; };
+		E6816438196A9BF90050A16B /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = E6816434196A9BF90050A16B /* Icon-40.png */; };
+		E690937D1967B42400910177 /* check-mark.png in Resources */ = {isa = PBXBuildFile; fileRef = E690937C1967B42400910177 /* check-mark.png */; };
+		E69093811967B47800910177 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = E69093801967B47800910177 /* add.png */; };
+		E6F603791962CC0B008697FA /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F603781962CC0B008697FA /* TabBarController.m */; };
+		E6F6037D1962ECC8008697FA /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = E6F6037C1962ECC8008697FA /* list.png */; };
+		E6F603811962F213008697FA /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F603801962F213008697FA /* AddViewController.m */; };
+		E6F603881962FB64008697FA /* ToDoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F603871962FB64008697FA /* ToDoItem.m */; };
+		E6F6038E1963FA5E008697FA /* ListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F6038D1963FA5E008697FA /* ListTableViewController.m */; };
+		E6F603911963FB0F008697FA /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F603901963FB0F008697FA /* CustomCell.m */; };
+		E6F6039C1964501C008697FA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F6039B1964501C008697FA /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +68,27 @@
 		E671EBEE19583AFC003102EE /* ToDoListTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ToDoListTests-Info.plist"; sourceTree = "<group>"; };
 		E671EBF019583AFC003102EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E671EBF219583AFC003102EE /* ToDoListTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoListTests.m; sourceTree = "<group>"; };
+		E681642C196A99470050A16B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../../../../Desktop/Default@2x.png"; sourceTree = "<group>"; };
+		E681642D196A99470050A16B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../../../../Desktop/Default.png; sourceTree = "<group>"; };
+		E6816431196A9BF90050A16B /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "../../../../Icon-Small@2x.png"; sourceTree = "<group>"; };
+		E6816432196A9BF90050A16B /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-76.png"; path = "../../../../Icon-76.png"; sourceTree = "<group>"; };
+		E6816433196A9BF90050A16B /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-60.png"; path = "../../../../Icon-60.png"; sourceTree = "<group>"; };
+		E6816434196A9BF90050A16B /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-40.png"; path = "../../../../Icon-40.png"; sourceTree = "<group>"; };
+		E690937C1967B42400910177 /* check-mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check-mark.png"; path = "../../../../check-mark.png"; sourceTree = "<group>"; };
+		E69093801967B47800910177 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = ../../../../../Desktop/IOSBasics/IOSBasics/Images.xcassets/add.png; sourceTree = "<group>"; };
+		E6F603771962CC0B008697FA /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		E6F603781962CC0B008697FA /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		E6F6037C1962ECC8008697FA /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list.png; path = Images.xcassets/list.png; sourceTree = "<group>"; };
+		E6F6037F1962F213008697FA /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		E6F603801962F213008697FA /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
+		E6F603861962FB64008697FA /* ToDoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItem.h; sourceTree = "<group>"; };
+		E6F603871962FB64008697FA /* ToDoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoItem.m; sourceTree = "<group>"; };
+		E6F6038C1963FA5E008697FA /* ListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewController.h; sourceTree = "<group>"; };
+		E6F6038D1963FA5E008697FA /* ListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewController.m; sourceTree = "<group>"; };
+		E6F6038F1963FB0F008697FA /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		E6F603901963FB0F008697FA /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
+		E6F6039A1964501C008697FA /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		E6F6039B1964501C008697FA /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,12 +148,13 @@
 		E671EBCD19583AFB003102EE /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				E6F60392196411EE008697FA /* Class */,
 				E671EBD619583AFB003102EE /* AppDelegate.h */,
 				E671EBD719583AFB003102EE /* AppDelegate.m */,
 				E671EBD919583AFB003102EE /* Main.storyboard */,
-				E671EBDC19583AFB003102EE /* ViewController.h */,
-				E671EBDD19583AFB003102EE /* ViewController.m */,
+				E6F603821962F8EF008697FA /* Controllers */,
 				E671EBDF19583AFB003102EE /* Images.xcassets */,
+				E6F6037E1962ECE5008697FA /* Assets */,
 				E671EBCE19583AFB003102EE /* Supporting Files */,
 			);
 			path = ToDoList;
@@ -150,6 +187,50 @@
 				E671EBEF19583AFC003102EE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E6F6037E1962ECE5008697FA /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E6816431196A9BF90050A16B /* Icon-Small@2x.png */,
+				E6816432196A9BF90050A16B /* Icon-76.png */,
+				E6816433196A9BF90050A16B /* Icon-60.png */,
+				E6816434196A9BF90050A16B /* Icon-40.png */,
+				E681642C196A99470050A16B /* Default@2x.png */,
+				E681642D196A99470050A16B /* Default.png */,
+				E69093801967B47800910177 /* add.png */,
+				E690937C1967B42400910177 /* check-mark.png */,
+				E6F6037C1962ECC8008697FA /* list.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		E6F603821962F8EF008697FA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E671EBDC19583AFB003102EE /* ViewController.h */,
+				E6F6038C1963FA5E008697FA /* ListTableViewController.h */,
+				E6F6038D1963FA5E008697FA /* ListTableViewController.m */,
+				E6F6039A1964501C008697FA /* DetailViewController.h */,
+				E6F6039B1964501C008697FA /* DetailViewController.m */,
+				E6F6038F1963FB0F008697FA /* CustomCell.h */,
+				E6F603901963FB0F008697FA /* CustomCell.m */,
+				E671EBDD19583AFB003102EE /* ViewController.m */,
+				E6F603771962CC0B008697FA /* TabBarController.h */,
+				E6F603781962CC0B008697FA /* TabBarController.m */,
+				E6F6037F1962F213008697FA /* AddViewController.h */,
+				E6F603801962F213008697FA /* AddViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		E6F60392196411EE008697FA /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				E6F603861962FB64008697FA /* ToDoItem.h */,
+				E6F603871962FB64008697FA /* ToDoItem.m */,
+			);
+			name = Class;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,9 +309,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6816430196A9A710050A16B /* Default@2x.png in Resources */,
 				E671EBE019583AFB003102EE /* Images.xcassets in Resources */,
+				E6F6037D1962ECC8008697FA /* list.png in Resources */,
+				E6816435196A9BF90050A16B /* Icon-Small@2x.png in Resources */,
+				E6816437196A9BF90050A16B /* Icon-60.png in Resources */,
 				E671EBD219583AFB003102EE /* InfoPlist.strings in Resources */,
+				E681642F196A99470050A16B /* Default.png in Resources */,
+				E69093811967B47800910177 /* add.png in Resources */,
+				E6816438196A9BF90050A16B /* Icon-40.png in Resources */,
+				E6816436196A9BF90050A16B /* Icon-76.png in Resources */,
 				E671EBDB19583AFB003102EE /* Main.storyboard in Resources */,
+				E690937D1967B42400910177 /* check-mark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +339,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6F603811962F213008697FA /* AddViewController.m in Sources */,
 				E671EBDE19583AFB003102EE /* ViewController.m in Sources */,
+				E6F6039C1964501C008697FA /* DetailViewController.m in Sources */,
+				E6F603911963FB0F008697FA /* CustomCell.m in Sources */,
+				E6F603881962FB64008697FA /* ToDoItem.m in Sources */,
+				E6F6038E1963FA5E008697FA /* ListTableViewController.m in Sources */,
+				E6F603791962CC0B008697FA /* TabBarController.m in Sources */,
 				E671EBD819583AFB003102EE /* AppDelegate.m in Sources */,
 				E671EBD419583AFB003102EE /* main.m in Sources */,
 			);
@@ -376,6 +472,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ToDoList/ToDoList-Prefix.pch";
 				INFOPLIST_FILE = "ToDoList/ToDoList-Info.plist";
@@ -389,6 +486,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ToDoList/ToDoList-Prefix.pch";
 				INFOPLIST_FILE = "ToDoList/ToDoList-Info.plist";
@@ -456,6 +554,7 @@
 				E671EBF819583AFC003102EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E671EBF919583AFC003102EE /* Build configuration list for PBXNativeTarget "ToDoListTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +563,7 @@
 				E671EBFB19583AFC003102EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

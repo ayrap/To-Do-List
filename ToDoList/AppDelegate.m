@@ -7,12 +7,20 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    ViewController *viewController = [[ViewController alloc] init];
+    window.rootViewController = viewController;
+    [window makeKeyAndVisible];
+    sleep(2);
     return YES;
 }
 							
@@ -41,6 +49,15 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (NSMutableArray *) toDoItems
+{
+    if (!_toDoItems) {
+        _toDoItems = [[NSMutableArray alloc] init];
+    }
+    
+    return _toDoItems;
 }
 
 @end
