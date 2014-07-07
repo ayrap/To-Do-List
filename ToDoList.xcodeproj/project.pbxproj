@@ -27,6 +27,7 @@
 		E6816436196A9BF90050A16B /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = E6816432196A9BF90050A16B /* Icon-76.png */; };
 		E6816437196A9BF90050A16B /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = E6816433196A9BF90050A16B /* Icon-60.png */; };
 		E6816438196A9BF90050A16B /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = E6816434196A9BF90050A16B /* Icon-40.png */; };
+		E681643B196AAD8F0050A16B /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = E681643A196AAD8F0050A16B /* Utility.m */; };
 		E690937D1967B42400910177 /* check-mark.png in Resources */ = {isa = PBXBuildFile; fileRef = E690937C1967B42400910177 /* check-mark.png */; };
 		E69093811967B47800910177 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = E69093801967B47800910177 /* add.png */; };
 		E6F603791962CC0B008697FA /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F603781962CC0B008697FA /* TabBarController.m */; };
@@ -74,6 +75,8 @@
 		E6816432196A9BF90050A16B /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-76.png"; path = "../../../../Icon-76.png"; sourceTree = "<group>"; };
 		E6816433196A9BF90050A16B /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-60.png"; path = "../../../../Icon-60.png"; sourceTree = "<group>"; };
 		E6816434196A9BF90050A16B /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-40.png"; path = "../../../../Icon-40.png"; sourceTree = "<group>"; };
+		E6816439196AAD8F0050A16B /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		E681643A196AAD8F0050A16B /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		E690937C1967B42400910177 /* check-mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check-mark.png"; path = "../../../../check-mark.png"; sourceTree = "<group>"; };
 		E69093801967B47800910177 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = ../../../../../Desktop/IOSBasics/IOSBasics/Images.xcassets/add.png; sourceTree = "<group>"; };
 		E6F603771962CC0B008697FA /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
@@ -148,6 +151,7 @@
 		E671EBCD19583AFB003102EE /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				E681643C196AAD930050A16B /* Common */,
 				E6F60392196411EE008697FA /* Class */,
 				E671EBD619583AFB003102EE /* AppDelegate.h */,
 				E671EBD719583AFB003102EE /* AppDelegate.m */,
@@ -187,6 +191,16 @@
 				E671EBEF19583AFC003102EE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E681643C196AAD930050A16B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E6816439196AAD8F0050A16B /* Utility.h */,
+				E681643A196AAD8F0050A16B /* Utility.m */,
+			);
+			name = Common;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		E6F6037E1962ECE5008697FA /* Assets */ = {
@@ -341,6 +355,7 @@
 			files = (
 				E6F603811962F213008697FA /* AddViewController.m in Sources */,
 				E671EBDE19583AFB003102EE /* ViewController.m in Sources */,
+				E681643B196AAD8F0050A16B /* Utility.m in Sources */,
 				E6F6039C1964501C008697FA /* DetailViewController.m in Sources */,
 				E6F603911963FB0F008697FA /* CustomCell.m in Sources */,
 				E6F603881962FB64008697FA /* ToDoItem.m in Sources */,
