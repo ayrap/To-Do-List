@@ -10,6 +10,7 @@
 #import "ListTableViewController.h"
 #import "AppDelegate.h"
 #import "Utility.h"
+#import "Item.h"
 
 @interface AddViewController (){
     AppDelegate *appdelegate;
@@ -20,6 +21,7 @@
 @property (strong, nonatomic) UILabel *dueDateLabel;
 @property (strong, nonatomic) UIDatePicker *dueDate;
 @property (strong, nonatomic) UIButton *doneButton;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @end
 
 @implementation AddViewController
@@ -43,6 +45,7 @@
     [self.view addSubview:self.doneButton];
     
     appdelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = appdelegate.managedObjectContext;
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,7 +67,8 @@
 }
 
 - (IBAction)clickButton:(UIButton *)sender {
-    
+  
+    /*
     ToDoItem *toDoItem = [[ToDoItem alloc] init];
     toDoItem.itemName = _itemTextField.text;
     toDoItem.itemDescription = _descriptionText.text;
@@ -72,6 +76,19 @@
     toDoItem.completed = NO;
     
     [appdelegate.toDoItems addObject:toDoItem];
+    */
+
+    Item * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Item"
+                                                      inManagedObjectContext:self.managedObjectContext];
+    newEntry.title = _itemTextField.text;
+    newEntry.detail = _descriptionText.text;
+    newEntry.dueDate = _dueDate.date;
+    newEntry.completed = [NSNumber numberWithBool:NO];
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    
     [self clearAllText];
 }
 

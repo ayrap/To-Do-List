@@ -9,12 +9,17 @@
 #import "ListTableViewController.h"
 #import "AppDelegate.h"
 #import "DetailViewController.h"
+#import "Item.h"
+#import "CustomCell.h"
+#import "ToDoItem.h"
+#import "Utility.h"
 
 @interface ListTableViewController ()
 {
     AppDelegate *appdelegate;
 }
 @property (nonatomic, retain) DetailViewController * dvController;
+@property (nonatomic,strong)NSArray* fetchedRecordsArray;
 @end
 
 @implementation ListTableViewController
@@ -34,17 +39,21 @@
 {
     [super viewDidLoad];
     appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.fetchedRecordsArray = [appdelegate getAllTodoItems];
+    [self.tableView reloadData];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self.tableView registerClass:[CustomCell class] forCellReuseIdentifier:@"CustomCell"];
+
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
    //[self.tableView setContentInset:UIEdgeInsetsMake(70, self.tableView.contentInset.left, 70, self.tableView.contentInset.right)];
+    self.fetchedRecordsArray = [appdelegate getAllTodoItems];
     [self.tableView reloadData];
    
 }
@@ -66,7 +75,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [appdelegate.toDoItems count];
+    //return [appdelegate.toDoItems count];
+    return [self.fetchedRecordsArray count];
 }
 
 
@@ -75,13 +85,28 @@
  
     static NSString *CellIdentifier = @"CustomCell";
     CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    ToDoItem *toDoItem = [appdelegate.toDoItems objectAtIndex:indexPath.row];
+    // comment out to use Core data now
+    /*ToDoItem *toDoItem = [appdelegate.toDoItems objectAtIndex:indexPath.row];
     cell.nameLabel.text = toDoItem.itemName;
     cell.descriptionLabel.text = toDoItem.itemDescription;
     cell.dateLabel.text = toDoItem.itemDueDate;
     cell.accessoryButton.tag = indexPath.row;
     [cell.accessoryButton addTarget:self action:@selector(doneButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     if (toDoItem.completed) {
+        cell.accessoryCheck.hidden = NO;
+    }
+    else
+    {
+        cell.accessoryCheck.hidden = YES;
+    }
+     */
+    Item * record = [self.fetchedRecordsArray objectAtIndex:indexPath.row];
+    NSLog(@"%@", record);
+    cell.nameLabel.text = record.title;
+    cell.descriptionLabel.text = record.detail;
+    cell.dateLabel.text = [Utility formatDate:record.dueDate];
+    cell.accessoryButton.tag = indexPath.row;
+    if ([record.completed intValue]== 1) {
         cell.accessoryCheck.hidden = NO;
     }
     else
@@ -99,8 +124,16 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    ToDoItem *tappedItem = [appdelegate.toDoItems objectAtIndex:indexPath.row];
-    tappedItem.completed = !tappedItem.completed;
+//    ToDoItem *tappedItem = [appdelegate.toDoItems objectAtIndex:indexPath.row];
+//    tappedItem.completed = !tappedItem.completed;
+    Item *tappedItem = [self.fetchedRecordsArray objectAtIndex:indexPath.row];
+    if([tappedItem.completed intValue] == 1){
+        tappedItem.completed = [NSNumber numberWithBool:NO];
+    }
+    else {
+        tappedItem.completed = [NSNumber numberWithBool:YES];
+    }
+    [appdelegate.managedObjectContext save:nil];
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
@@ -128,8 +161,22 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        /* comment out to use core data now
         [appdelegate.toDoItems removeObjectAtIndex:indexPath.row];
         [tableView reloadData];
+         */
+        [self.tableView beginUpdates]; // Avoid  NSInternalInconsistencyException
+        
+        // Delete the role object that was swiped
+        Item *itemToDelete = [self.fetchedRecordsArray objectAtIndex:indexPath.row];
+        [appdelegate.managedObjectContext deleteObject:itemToDelete];
+        [appdelegate.managedObjectContext save:nil];
+        
+        // Delete the (now empty) row on the table
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        self.fetchedRecordsArray = [appdelegate getAllTodoItems];
+        
+        [self.tableView endUpdates];
     } else if (editingStyle == UITableViewCellEditingStyleInsert)
     {
     }   
@@ -144,9 +191,11 @@
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
-    ToDoItem *rowObj = [appdelegate.toDoItems objectAtIndex:fromIndexPath.row];
-    [appdelegate.toDoItems removeObjectAtIndex:fromIndexPath.row];
-    [appdelegate.toDoItems insertObject:rowObj atIndex:toIndexPath.row];
+//    ToDoItem *rowObj = [appdelegate.toDoItems objectAtIndex:fromIndexPath.row];
+//    [appdelegate.toDoItems removeObjectAtIndex:fromIndexPath.row];
+//    [appdelegate.toDoItems insertObject:rowObj atIndex:toIndexPath.row];
+    
+    Item *itemToSort = [self.fetchedRecordsArray objectAtIndex:fromIndexPath.row];
 }
 
 - (void)willTransitionToState:(UITableViewCellStateMask)state {

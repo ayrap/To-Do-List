@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CustomCell.h"
-#import "ToDoItem.h"
 
 @interface ListTableViewController : UITableViewController
 @end
