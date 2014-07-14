@@ -18,6 +18,7 @@
 {
     AppDelegate *appdelegate;
 }
+- (void)reloadTable;
 @property (nonatomic, retain) DetailViewController * dvController;
 @property (nonatomic,strong)NSArray* fetchedRecordsArray;
 @end
@@ -40,13 +41,15 @@
     [super viewDidLoad];
     appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.fetchedRecordsArray = [appdelegate getAllTodoItems];
-    [self.tableView reloadData];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    [self reloadTable];
+
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self.tableView registerClass:[CustomCell class] forCellReuseIdentifier:@"CustomCell"];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadTable)
+                                                 name:@"reloadData"
+                                               object:nil];
 
 }
 
@@ -54,7 +57,7 @@
 {
    //[self.tableView setContentInset:UIEdgeInsetsMake(70, self.tableView.contentInset.left, 70, self.tableView.contentInset.right)];
     self.fetchedRecordsArray = [appdelegate getAllTodoItems];
-    [self.tableView reloadData];
+    [self reloadTable];
    
 }
 
@@ -118,6 +121,7 @@
     [cell.contentView addSubview:cell.dateLabel];
     [cell.contentView addSubview:cell.accessoryButton];
     [cell.contentView addSubview:cell.accessoryCheck];
+    
     return cell;
 }
 
@@ -189,13 +193,17 @@
     return 60;
 }
 
+- (void)reloadTable
+{
+    [self.tableView reloadData];
+}
+
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
 //    ToDoItem *rowObj = [appdelegate.toDoItems objectAtIndex:fromIndexPath.row];
 //    [appdelegate.toDoItems removeObjectAtIndex:fromIndexPath.row];
 //    [appdelegate.toDoItems insertObject:rowObj atIndex:toIndexPath.row];
     
-    Item *itemToSort = [self.fetchedRecordsArray objectAtIndex:fromIndexPath.row];
 }
 
 - (void)willTransitionToState:(UITableViewCellStateMask)state {

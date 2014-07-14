@@ -88,7 +88,7 @@
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
-    
+    [self pushNotifications];
     [self clearAllText];
 }
 
@@ -104,6 +104,12 @@
 }
 */
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [_itemTextField resignFirstResponder];
+    return NO;
+}
+
 -(UITextField *)itemTextField {
     _itemTextField = [[UITextField alloc] initWithFrame:CGRectMake(30, 30, 250, 30)];
     _itemTextField.textColor = [UIColor colorWithRed:0/256.0 green:84/256.0 blue:129/256.0 alpha:1.0];
@@ -113,7 +119,7 @@
     _itemTextField.layer.masksToBounds=YES;
     _itemTextField.layer.borderColor=[[UIColor redColor]CGColor];
     _itemTextField.layer.borderWidth= 1.0f;
-    _itemTextField.placeholder=@"Title...";
+    _itemTextField.placeholder=@"To-do Item";
     return _itemTextField;
 }
 
@@ -138,7 +144,7 @@
 
 -(UILabel*)dueDateLabel{
     _dueDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(_descriptionText.frame.origin.x, 170, 250, 20)];
-    [_dueDateLabel setText: @"Due Date:"];
+    [_dueDateLabel setText: @"Remind me at:"];
     return _dueDateLabel;
 }
 
@@ -166,5 +172,20 @@
     _descriptionText.text = nil;
     _dueDate.date = [NSDate date];
 
+}
+
+-(void)pushNotifications{
+    // Schedule the notification
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = _dueDate.date;
+    localNotification.alertBody = _itemTextField.text;
+    localNotification.alertAction = @"Show me the item";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
+    //Reload table data
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadData" object:self];
 }
 @end
