@@ -104,7 +104,6 @@
     }
      */
     Item * record = [self.fetchedRecordsArray objectAtIndex:indexPath.row];
-    NSLog(@"%@", record);
     cell.nameLabel.text = record.title;
     cell.descriptionLabel.text = record.detail;
     cell.dateLabel.text = [Utility formatDate:record.dueDate];
@@ -173,6 +172,10 @@
         
         // Delete the role object that was swiped
         Item *itemToDelete = [self.fetchedRecordsArray objectAtIndex:indexPath.row];
+        
+        //delete notification
+        [self deleteLocalNotification:(itemToDelete.title)];
+        
         [appdelegate.managedObjectContext deleteObject:itemToDelete];
         [appdelegate.managedObjectContext save:nil];
         
@@ -213,6 +216,17 @@
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
+}
+
+-(void)deleteLocalNotification:(NSString *)notification{
+    NSArray *arrayOfLocalNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications] ;
+    for (UILocalNotification *localNotification in arrayOfLocalNotifications) {
+        if ([localNotification.alertBody isEqualToString:notification]) {
+            [[UIApplication sharedApplication] cancelLocalNotification:localNotification];
+            localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] - 1;
+        }
+    }
+
 }
 
 /*
