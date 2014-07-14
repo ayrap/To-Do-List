@@ -9,6 +9,7 @@
 #import "TabBarController.h"
 #import "AddViewController.h"
 #import "ListTableViewController.h"
+#import "SettingControllerViewController.h"
 
 @interface TabBarController ()
 
@@ -32,13 +33,16 @@
     //controllers
     AddViewController *view1 = [[AddViewController alloc] init];
     ListTableViewController *view2 = [[ListTableViewController alloc] initWithStyle:UITableViewStylePlain];
-  
+    SettingControllerViewController *view3 = [[SettingControllerViewController alloc] init];
+    
     //navigation controllers
     UINavigationController *listNavigationController = [[UINavigationController alloc] initWithRootViewController:view2];
+    UINavigationController *settingNavigationController = [[UINavigationController alloc] initWithRootViewController:view3];
     
     NSMutableArray *tabViewControllers = [[NSMutableArray alloc] init];
     [tabViewControllers addObject:view1];
     [tabViewControllers addObject:listNavigationController];
+    [tabViewControllers addObject:settingNavigationController];
     
     [self setViewControllers:tabViewControllers];
     
@@ -51,9 +55,14 @@
     [[UITabBarItem alloc] initWithTitle:@"List"
                                   image:[UIImage imageNamed:@"list.png"]
                                     tag:2];
+    view3.tabBarItem =
+    [[UITabBarItem alloc] initWithTitle:@"Settings"
+                                  image:[UIImage imageNamed:@"setting.png"]
+                                    tag:3];
     
     //add navigation
     [view2.view addSubview:listNavigationController.view];
+    [view3.view addSubview:settingNavigationController.view];
 }
 
 - (void)didReceiveMemoryWarning

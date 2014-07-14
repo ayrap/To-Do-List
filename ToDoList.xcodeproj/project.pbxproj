@@ -34,6 +34,8 @@
 		E6EFDEF8196FB6F800AD5DF2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6EFDEF7196FB6F800AD5DF2 /* CoreData.framework */; };
 		E6EFDF081970040700AD5DF2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EFDF071970040700AD5DF2 /* User.m */; };
 		E6EFDF0B1970053600AD5DF2 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EFDF0A1970053600AD5DF2 /* Item.m */; };
+		E6EFDF0E197417CD00AD5DF2 /* SettingControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EFDF0D197417CD00AD5DF2 /* SettingControllerViewController.m */; };
+		E6EFDF1019741B1A00AD5DF2 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = E6EFDF0F19741B1A00AD5DF2 /* setting.png */; };
 		E6F603791962CC0B008697FA /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F603781962CC0B008697FA /* TabBarController.m */; };
 		E6F6037D1962ECC8008697FA /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = E6F6037C1962ECC8008697FA /* list.png */; };
 		E6F603811962F213008697FA /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F603801962F213008697FA /* AddViewController.m */; };
@@ -89,6 +91,9 @@
 		E6EFDF071970040700AD5DF2 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		E6EFDF091970053600AD5DF2 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		E6EFDF0A1970053600AD5DF2 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		E6EFDF0C197417CD00AD5DF2 /* SettingControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingControllerViewController.h; sourceTree = "<group>"; };
+		E6EFDF0D197417CD00AD5DF2 /* SettingControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingControllerViewController.m; sourceTree = "<group>"; };
+		E6EFDF0F19741B1A00AD5DF2 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting.png; path = Images.xcassets/setting.png; sourceTree = "<group>"; };
 		E6F603771962CC0B008697FA /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		E6F603781962CC0B008697FA /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		E6F6037C1962ECC8008697FA /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list.png; path = Images.xcassets/list.png; sourceTree = "<group>"; };
@@ -231,6 +236,7 @@
 		E6F6037E1962ECE5008697FA /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E6EFDF0F19741B1A00AD5DF2 /* setting.png */,
 				E6816431196A9BF90050A16B /* Icon-Small@2x.png */,
 				E6816432196A9BF90050A16B /* Icon-76.png */,
 				E6816433196A9BF90050A16B /* Icon-60.png */,
@@ -259,6 +265,8 @@
 				E6F603781962CC0B008697FA /* TabBarController.m */,
 				E6F6037F1962F213008697FA /* AddViewController.h */,
 				E6F603801962F213008697FA /* AddViewController.m */,
+				E6EFDF0C197417CD00AD5DF2 /* SettingControllerViewController.h */,
+				E6EFDF0D197417CD00AD5DF2 /* SettingControllerViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -350,6 +358,7 @@
 			files = (
 				E6816430196A9A710050A16B /* Default@2x.png in Resources */,
 				E671EBE019583AFB003102EE /* Images.xcassets in Resources */,
+				E6EFDF1019741B1A00AD5DF2 /* setting.png in Resources */,
 				E6F6037D1962ECC8008697FA /* list.png in Resources */,
 				E6816435196A9BF90050A16B /* Icon-Small@2x.png in Resources */,
 				E6816437196A9BF90050A16B /* Icon-60.png in Resources */,
@@ -389,6 +398,7 @@
 				E6F6038E1963FA5E008697FA /* ListTableViewController.m in Sources */,
 				E6F603791962CC0B008697FA /* TabBarController.m in Sources */,
 				E671EBD819583AFB003102EE /* AppDelegate.m in Sources */,
+				E6EFDF0E197417CD00AD5DF2 /* SettingControllerViewController.m in Sources */,
 				E6EFDEF0196D9B1E00AD5DF2 /* ToDoModel.xcdatamodeld in Sources */,
 				E671EBD419583AFB003102EE /* main.m in Sources */,
 			);
