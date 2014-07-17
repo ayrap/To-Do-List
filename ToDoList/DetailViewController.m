@@ -34,11 +34,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    self.nameLabel.text = self.selectedItem.itemName;
-    self.descriptionLabel.text = self.selectedItem.itemDescription;
-    self.dueDateLabel.text = self.selectedItem.itemDueDate;
+
+    self.nameLabel.text = self.selectedItem.title;
+    self.descriptionLabel.text = self.selectedItem.detail;
+    self.dueDateLabel.text = [Utility formatDate:self.selectedItem.dueDate];
     
     [self.view addSubview:self.titleLabel];
     [self.view addSubview:self.nameLabel];

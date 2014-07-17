@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ToDoItem.h"
+#import "Utility.h"
 
 @interface DetailViewController : UIViewController
 @property (strong, nonatomic) ToDoItem *selectedItem;

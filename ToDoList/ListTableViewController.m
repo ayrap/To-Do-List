@@ -108,6 +108,7 @@
     cell.descriptionLabel.text = record.detail;
     cell.dateLabel.text = [Utility formatDate:record.dueDate];
     cell.accessoryButton.tag = indexPath.row;
+    [cell.accessoryButton addTarget:self action:@selector(doneButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     if ([record.completed intValue]== 1) {
         cell.accessoryCheck.hidden = NO;
     }
@@ -147,7 +148,11 @@
                                            toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:btnRow];
     
-    ToDoItem *selectedObj = [appdelegate.toDoItems objectAtIndex:indexPath.row];
+    //ToDoItem *selectedObj = [appdelegate.toDoItems objectAtIndex:indexPath.row];
+    
+    
+    ToDoItem *selectedObj = [self.fetchedRecordsArray objectAtIndex:indexPath.row];
+  
     DetailViewController *detailViewController = [[DetailViewController alloc] init];
     detailViewController.selectedItem = selectedObj;
     [self.navigationController pushViewController:detailViewController animated:NO];

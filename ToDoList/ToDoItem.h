@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface ToDoItem : NSObject
-@property NSString *itemName;
-@property NSString *itemDescription;
+@property NSString *title;
+@property NSString *detail;
 @property BOOL completed;
-@property NSString *itemDueDate;
+@property NSDate *dueDate;
 @end

@@ -9,7 +9,7 @@
 #import "ToDoItem.h"
 
 @implementation ToDoItem
-@synthesize itemName;
-@synthesize itemDescription;
-@synthesize itemDueDate;
+@synthesize title;
+@synthesize detail;
+@synthesize dueDate;
 @end
