@@ -31,10 +31,10 @@
 		E690937D1967B42400910177 /* check-mark.png in Resources */ = {isa = PBXBuildFile; fileRef = E690937C1967B42400910177 /* check-mark.png */; };
 		E69093811967B47800910177 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = E69093801967B47800910177 /* add.png */; };
 		E69E2FC0197E5E0100AA2031 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = E69E2FBF197E5E0100AA2031 /* avatar.png */; };
+		E69E2FC3197E9EFF00AA2031 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = E69E2FC2197E9EFF00AA2031 /* Item.m */; };
 		E6EFDEF0196D9B1E00AD5DF2 /* ToDoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6EFDEEE196D9B1E00AD5DF2 /* ToDoModel.xcdatamodeld */; };
 		E6EFDEF8196FB6F800AD5DF2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6EFDEF7196FB6F800AD5DF2 /* CoreData.framework */; };
 		E6EFDF081970040700AD5DF2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EFDF071970040700AD5DF2 /* User.m */; };
-		E6EFDF0B1970053600AD5DF2 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EFDF0A1970053600AD5DF2 /* Item.m */; };
 		E6EFDF0E197417CD00AD5DF2 /* SettingControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EFDF0D197417CD00AD5DF2 /* SettingControllerViewController.m */; };
 		E6EFDF1019741B1A00AD5DF2 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = E6EFDF0F19741B1A00AD5DF2 /* setting.png */; };
 		E6F603791962CC0B008697FA /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F603781962CC0B008697FA /* TabBarController.m */; };
@@ -87,12 +87,12 @@
 		E690937C1967B42400910177 /* check-mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check-mark.png"; path = "../../../../check-mark.png"; sourceTree = "<group>"; };
 		E69093801967B47800910177 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = ../../../../../Desktop/IOSBasics/IOSBasics/Images.xcassets/add.png; sourceTree = "<group>"; };
 		E69E2FBF197E5E0100AA2031 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar.png; path = Images.xcassets/avatar.png; sourceTree = "<group>"; };
+		E69E2FC1197E9EFF00AA2031 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		E69E2FC2197E9EFF00AA2031 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		E6EFDEEF196D9B1E00AD5DF2 /* ToDoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoModel.xcdatamodel; sourceTree = "<group>"; };
 		E6EFDEF7196FB6F800AD5DF2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E6EFDF061970040700AD5DF2 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		E6EFDF071970040700AD5DF2 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		E6EFDF091970053600AD5DF2 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
-		E6EFDF0A1970053600AD5DF2 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		E6EFDF0C197417CD00AD5DF2 /* SettingControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingControllerViewController.h; sourceTree = "<group>"; };
 		E6EFDF0D197417CD00AD5DF2 /* SettingControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingControllerViewController.m; sourceTree = "<group>"; };
 		E6EFDF0F19741B1A00AD5DF2 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting.png; path = Images.xcassets/setting.png; sourceTree = "<group>"; };
@@ -228,9 +228,9 @@
 			children = (
 				E6EFDF061970040700AD5DF2 /* User.h */,
 				E6EFDF071970040700AD5DF2 /* User.m */,
+				E69E2FC1197E9EFF00AA2031 /* Item.h */,
+				E69E2FC2197E9EFF00AA2031 /* Item.m */,
 				E6EFDEEE196D9B1E00AD5DF2 /* ToDoModel.xcdatamodeld */,
-				E6EFDF091970053600AD5DF2 /* Item.h */,
-				E6EFDF0A1970053600AD5DF2 /* Item.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -391,7 +391,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6EFDF0B1970053600AD5DF2 /* Item.m in Sources */,
 				E6EFDF081970040700AD5DF2 /* User.m in Sources */,
 				E6F603811962F213008697FA /* AddViewController.m in Sources */,
 				E671EBDE19583AFB003102EE /* ViewController.m in Sources */,
@@ -404,6 +403,7 @@
 				E671EBD819583AFB003102EE /* AppDelegate.m in Sources */,
 				E6EFDF0E197417CD00AD5DF2 /* SettingControllerViewController.m in Sources */,
 				E6EFDEF0196D9B1E00AD5DF2 /* ToDoModel.xcdatamodeld in Sources */,
+				E69E2FC3197E9EFF00AA2031 /* Item.m in Sources */,
 				E671EBD419583AFB003102EE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

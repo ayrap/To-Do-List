@@ -2,7 +2,7 @@
 //  Item.m
 //  ToDoList
 //
-//  Created by Ayra Panganiban on 7/11/14.
+//  Created by Ayra Panganiban on 7/22/14.
 //  Copyright (c) 2014 Ayra Panganiban. All rights reserved.
 //
 
@@ -12,10 +12,11 @@
 
 @implementation Item
 
-@dynamic title;
+@dynamic completed;
 @dynamic detail;
 @dynamic dueDate;
-@dynamic completed;
+@dynamic title;
+@dynamic sortOrder;
 @dynamic whoWrote;
 
 @end

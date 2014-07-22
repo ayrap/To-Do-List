@@ -4,6 +4,7 @@
         <attribute name="completed" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dueDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="sortOrder" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="whoWrote" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="items" inverseEntity="User" syncable="YES"/>
     </entity>
@@ -12,7 +13,7 @@
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="whoWrote" inverseEntity="Item" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-45" positionY="0" width="128" height="118"/>
+        <element name="Item" positionX="-45" positionY="0" width="128" height="135"/>
         <element name="User" positionX="-281" positionY="-0" width="128" height="73"/>
     </elements>
 </model>

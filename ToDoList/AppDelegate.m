@@ -130,6 +130,7 @@
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 
+
 -(NSArray*)getAllTodoItems
 {
     // initializing NSFetchRequest
@@ -139,6 +140,12 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Item"
                                               inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
+    
+    //Set Sort Order
+    NSSortDescriptor *sortOrder = [[NSSortDescriptor alloc] initWithKey:@"sortOrder" ascending:YES];
+    
+    [fetchRequest setSortDescriptors:@[sortOrder]];
+
     NSError* error;
     
     // Query on managedObjectContext With Generated fetchRequest

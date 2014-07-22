@@ -212,6 +212,19 @@
 //    [appdelegate.toDoItems removeObjectAtIndex:fromIndexPath.row];
 //    [appdelegate.toDoItems insertObject:rowObj atIndex:toIndexPath.row];
     
+    NSMutableArray *allItems = [self.fetchedRecordsArray mutableCopy];
+    
+    NSManagedObject *sourceObject = [self.fetchedRecordsArray objectAtIndex:fromIndexPath.row];
+    
+    [allItems removeObject:sourceObject];
+    [allItems insertObject:sourceObject atIndex:[toIndexPath row]];
+    
+    int i = 0;
+    for (NSManagedObject *managedObj in allItems)
+    {
+        [managedObj setValue:[NSNumber numberWithInt:i++] forKey:@"sortOrder"];
+    }
+    [appdelegate.managedObjectContext save:nil];
 }
 
 - (void)willTransitionToState:(UITableViewCellStateMask)state {
