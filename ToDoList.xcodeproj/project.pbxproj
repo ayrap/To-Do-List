@@ -30,6 +30,7 @@
 		E681643B196AAD8F0050A16B /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = E681643A196AAD8F0050A16B /* Utility.m */; };
 		E690937D1967B42400910177 /* check-mark.png in Resources */ = {isa = PBXBuildFile; fileRef = E690937C1967B42400910177 /* check-mark.png */; };
 		E69093811967B47800910177 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = E69093801967B47800910177 /* add.png */; };
+		E69E2FC0197E5E0100AA2031 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = E69E2FBF197E5E0100AA2031 /* avatar.png */; };
 		E6EFDEF0196D9B1E00AD5DF2 /* ToDoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6EFDEEE196D9B1E00AD5DF2 /* ToDoModel.xcdatamodeld */; };
 		E6EFDEF8196FB6F800AD5DF2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6EFDEF7196FB6F800AD5DF2 /* CoreData.framework */; };
 		E6EFDF081970040700AD5DF2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EFDF071970040700AD5DF2 /* User.m */; };
@@ -85,6 +86,7 @@
 		E681643A196AAD8F0050A16B /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		E690937C1967B42400910177 /* check-mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check-mark.png"; path = "../../../../check-mark.png"; sourceTree = "<group>"; };
 		E69093801967B47800910177 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = ../../../../../Desktop/IOSBasics/IOSBasics/Images.xcassets/add.png; sourceTree = "<group>"; };
+		E69E2FBF197E5E0100AA2031 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar.png; path = Images.xcassets/avatar.png; sourceTree = "<group>"; };
 		E6EFDEEF196D9B1E00AD5DF2 /* ToDoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoModel.xcdatamodel; sourceTree = "<group>"; };
 		E6EFDEF7196FB6F800AD5DF2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E6EFDF061970040700AD5DF2 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 		E6F6037E1962ECE5008697FA /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E69E2FBF197E5E0100AA2031 /* avatar.png */,
 				E6EFDF0F19741B1A00AD5DF2 /* setting.png */,
 				E6816431196A9BF90050A16B /* Icon-Small@2x.png */,
 				E6816432196A9BF90050A16B /* Icon-76.png */,
@@ -364,6 +367,7 @@
 				E6816437196A9BF90050A16B /* Icon-60.png in Resources */,
 				E671EBD219583AFB003102EE /* InfoPlist.strings in Resources */,
 				E681642F196A99470050A16B /* Default.png in Resources */,
+				E69E2FC0197E5E0100AA2031 /* avatar.png in Resources */,
 				E69093811967B47800910177 /* add.png in Resources */,
 				E6816438196A9BF90050A16B /* Icon-40.png in Resources */,
 				E6816436196A9BF90050A16B /* Icon-76.png in Resources */,
