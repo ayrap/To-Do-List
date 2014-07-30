@@ -44,7 +44,7 @@
         _feedbackLabel.textColor = [UIColor blackColor];
         _feedbackLabel.font      = [UIFont systemFontOfSize:15.0];
         _feedbackLabel.frame     = CGRectMake(20, 5, 300, 20);
-        _feedbackLabel.text = @"Share Feedback";
+        _feedbackLabel.text = @"Send Feedback";
     }
     return _feedbackLabel;
 }

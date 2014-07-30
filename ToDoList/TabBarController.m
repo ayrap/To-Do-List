@@ -9,7 +9,6 @@
 #import "TabBarController.h"
 #import "AddViewController.h"
 #import "ListTableViewController.h"
-#import "SettingControllerViewController.h"
 #import "SettingsTableViewController.h"
 
 @interface TabBarController ()

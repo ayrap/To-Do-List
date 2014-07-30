@@ -8,8 +8,9 @@
 
 #import "SettingsTableViewController.h"
 #import "SettingCell.h"
+#import <MessageUI/MessageUI.h>
 
-@interface SettingsTableViewController ()
+@interface SettingsTableViewController ()<MFMailComposeViewControllerDelegate>
 @end
 
 @implementation SettingsTableViewController
@@ -26,6 +27,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                              message:@"Device has no camera."
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles: nil];
+        
+        [myAlertView show];
+        
+    }
+
     [self.tableView registerClass:[SettingCell class] forCellReuseIdentifier:@"SettingCell"];
 }
 
@@ -103,6 +116,15 @@
     }
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1){
+        if(indexPath.row == 0){
+            [self sendFeedback:@[@"ayrap@sourcepad.com"]];
+        }
+    }
+}
+
 -(IBAction)uploadPhoto:(UIButton *)sender {
     UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle: nil
                                                               delegate: self
@@ -155,6 +177,33 @@
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
 }
+
+- (void) sendFeedback:(NSArray *)recipients
+{
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *mailComposeViewController = [[MFMailComposeViewController alloc] initWithNibName:nil bundle:nil];
+        
+        [mailComposeViewController setMailComposeDelegate:self];
+        
+        [mailComposeViewController setToRecipients:recipients];
+        
+        [mailComposeViewController setSubject:@"ToDoList Feedback"];
+        
+        [mailComposeViewController setMessageBody:@"This app is helpful." isHTML:NO];
+        
+        [self presentViewController:mailComposeViewController animated:YES completion:nil];
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    if (error) {
+        NSLog(@"Mailer Error: %@", error);
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 
 @end
