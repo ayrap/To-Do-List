@@ -10,6 +10,7 @@
 #import "AddViewController.h"
 #import "ListTableViewController.h"
 #import "SettingControllerViewController.h"
+#import "SettingsTableViewController.h"
 
 @interface TabBarController ()
 
@@ -33,7 +34,7 @@
     //controllers
     AddViewController *view1 = [[AddViewController alloc] init];
     ListTableViewController *view2 = [[ListTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    SettingControllerViewController *view3 = [[SettingControllerViewController alloc] init];
+    SettingsTableViewController *view3 = [[SettingsTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
     
     //navigation controllers
     UINavigationController *listNavigationController = [[UINavigationController alloc] initWithRootViewController:view2];

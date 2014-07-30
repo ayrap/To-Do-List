@@ -7,8 +7,13 @@
 //
 
 #import "SettingControllerViewController.h"
+#import "AppDelegate.h"
+#import "Item.h"
 
-@interface SettingControllerViewController ()
+@interface SettingControllerViewController (){
+    AppDelegate *appdelegate;
+}
+@property (nonatomic,strong)NSArray* fetchedRecordsArray;
 @end
 
 
@@ -27,6 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.fetchedRecordsArray = [appdelegate getAllTodoItems];
     
     [self.view addSubview:self.imageView];
     [self.view addSubview:self.btnSelectPhoto];
@@ -120,6 +128,17 @@
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     _imageView.image = chosenImage;
+    
+//    NSManagedObjectContext *context = [self.fet managedObjectContext];
+//    NSEntityDescription *entity = [[self.fetchedRecordsArray ] entity];
+//    User *avatar = (User *) [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+//    [avatar setValue:assetUrl forKey:@"avatarUrl"];
+    
+//    NSError *error;
+//    if (![context save:&error]) {
+//        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+//        abort();
+//    }
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     

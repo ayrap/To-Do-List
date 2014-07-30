@@ -2,7 +2,7 @@
 //  User.h
 //  ToDoList
 //
-//  Created by Ayra Panganiban on 7/11/14.
+//  Created by Ayra Panganiban on 7/23/14.
 //  Copyright (c) 2014 Ayra Panganiban. All rights reserved.
 //
 
@@ -14,6 +14,7 @@
 @interface User : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * avatarUrl;
 @property (nonatomic, retain) NSSet *items;
 @end
 
