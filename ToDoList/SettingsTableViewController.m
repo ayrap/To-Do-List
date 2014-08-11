@@ -8,9 +8,10 @@
 
 #import "SettingsTableViewController.h"
 #import "SettingCell.h"
+#import "Constants.h"
 #import <MessageUI/MessageUI.h>
 
-@interface SettingsTableViewController ()<MFMailComposeViewControllerDelegate>
+@interface SettingsTableViewController ()<MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 @end
 
 @implementation SettingsTableViewController
@@ -76,6 +77,10 @@
         {
             [cell.btnUploadPhoto addTarget:self action:@selector(uploadPhoto:) forControlEvents:UIControlEventTouchUpInside];
             [cell.contentView addSubview:cell.photoView];
+            NSString *imagePath = [[NSUserDefaults standardUserDefaults] objectForKey:DEFAULTS_AVATAR_URL];
+            if (imagePath) {
+                cell.photoView.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:imagePath]];
+            }
             [cell.contentView addSubview:cell.btnUploadPhoto];
         }
         
@@ -180,7 +185,7 @@
             }
             else if(buttonIndex==0)
             {
-                
+                [self sendTextMessage:@[@"09065893581"]];
                 
             }
             else if(buttonIndex==1)
@@ -204,8 +209,30 @@
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     cell.photoView.image = chosenImage;
     
+    NSData *imageData = UIImageJPEGRepresentation(chosenImage, 1);
+
+    NSString *imagePath = [self documentsPathForFileName:[NSString stringWithFormat:@"image_%f.jpg", [NSDate timeIntervalSinceReferenceDate]]];
+    
+    [imageData writeToFile:imagePath atomically:YES];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:imagePath forKey:DEFAULTS_AVATAR_URL];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
+}
+
+- (void) sendTextMessage:(NSArray *)recipients {
+    MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
+	if([MFMessageComposeViewController canSendText])
+	{
+		controller.body = @"To-Do List App";
+        controller.body = @"Hello!";
+		controller.recipients = recipients;
+		controller.messageComposeDelegate = self;
+		[self dismissViewControllerAnimated:NO completion:nil];
+	}
 }
 
 - (void) sendFeedback:(NSArray *)recipients
@@ -232,6 +259,32 @@
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+	switch (result) {
+		case MessageComposeResultCancelled:
+			NSLog(@"Cancelled");
+			break;
+		case MessageComposeResultFailed:
+            NSLog(@"Failed");
+			break;
+		case MessageComposeResultSent:
+        
+			break;
+		default:
+			break;
+	}
+    
+	[self dismissViewControllerAnimated:NO completion:nil];
+}
+
+- (NSString *)documentsPathForFileName:(NSString *)name {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    
+    return [documentsPath stringByAppendingPathComponent:name];
 }
 
 

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "TabBarController.h"
+#import "Constants.h"
 
 @interface ViewController ()
 @property (strong, nonatomic) UILabel *appLabel;
@@ -40,6 +41,7 @@
     }
     else {
         _appLabel.text = [NSString stringWithFormat:@"%@%@!", @"Hello ", _nameText.text];
+        [[NSUserDefaults standardUserDefaults] setObject:_nameText.text forKey:DEFAULTS_SAVED_USER_NAME];
         UITabBarController *tbc = [[TabBarController alloc]
                                    initWithNibName:@"MainTabBarController"
                                    bundle:nil];
