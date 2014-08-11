@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
-@interface ViewController : UIViewController<UITextFieldDelegate>
+@interface ViewController : UIViewController<FBLoginViewDelegate, UITextFieldDelegate>
 //Actions
 - (IBAction)clickButton:(UIButton *)sender;
 @end

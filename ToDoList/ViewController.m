@@ -9,12 +9,14 @@
 #import "ViewController.h"
 #import "TabBarController.h"
 #import "Constants.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface ViewController ()
 @property (strong, nonatomic) UILabel *appLabel;
 @property (strong, nonatomic) UILabel *nameLabel;
 @property (strong, nonatomic) UITextField *nameText;
 @property (strong, nonatomic) UIButton *btn;
+@property (nonatomic) BOOL isLoggedInToFacebook;
 @end
 
 
@@ -27,6 +29,13 @@
     [self.view addSubview:self.nameLabel];
     [self.view addSubview:self.nameText];
     [self.view addSubview:self.btn];
+    
+    FBLoginView *loginView = [[FBLoginView alloc] init];
+    loginView.frame = CGRectOffset(loginView.frame, (self.view.center.x - (loginView.frame.size.width / 2)), self.btn.frame.origin.y + 100);
+    [self.view addSubview:loginView];
+    loginView.delegate = self;
+    // Facebook login
+    loginView.readPermissions = @[@"public_profile", @"email", @"user_photos"];
     
 }
 
@@ -41,6 +50,7 @@
     }
     else {
         _appLabel.text = [NSString stringWithFormat:@"%@%@!", @"Hello ", _nameText.text];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:DEFAULTS_USER_DID_SIGN_IN_WITH_FACEBOOK];
         [[NSUserDefaults standardUserDefaults] setObject:_nameText.text forKey:DEFAULTS_SAVED_USER_NAME];
         UITabBarController *tbc = [[TabBarController alloc]
                                    initWithNibName:@"MainTabBarController"
@@ -116,5 +126,67 @@
                                              cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     [alertView show];
 }
+
+#pragma mark - Facebook login view delegate
+
+// This method will be called when the user information has been fetched
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
+                            user:(id<FBGraphUser>)user {
+  
+}
+
+// Logged-in user experience
+- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
+}
+
+// Logged-out user experience
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
+    
+}
+
+// Handle possible errors that can occur during login
+- (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {
+    NSString *alertMessage, *alertTitle;
+    
+    // If the user should perform an action outside of you app to recover,
+    // the SDK will provide a message for the user, you just need to surface it.
+    // This conveniently handles cases like Facebook password change or unverified Facebook accounts.
+    if ([FBErrorUtility shouldNotifyUserForError:error]) {
+        alertTitle = @"Facebook error";
+        alertMessage = [FBErrorUtility userMessageForError:error];
+        
+        // This code will handle session closures that happen outside of the app
+        // You can take a look at our error handling guide to know more about it
+        // https://developers.facebook.com/docs/ios/errors
+    } else if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryAuthenticationReopenSession) {
+        alertTitle = @"Session Error";
+        alertMessage = @"Your current session is no longer valid. Please log in again.";
+        
+        // If the user has cancelled a login, we will do nothing.
+        // You can also choose to show the user a message if cancelling login will result in
+        // the user not being able to complete a task they had initiated in your app
+        // (like accessing FB-stored information or posting to Facebook)
+    } else if ([FBErrorUtility errorCategoryForError:error] == FBErrorCategoryUserCancelled) {
+        NSLog(@"user cancelled login");
+        
+        // For simplicity, this sample handles other errors with a generic message
+        // You can checkout our error handling guide for more detailed information
+        // https://developers.facebook.com/docs/ios/errors
+    } else {
+        alertTitle  = @"Something went wrong";
+        alertMessage = @"Please try again later.";
+        NSLog(@"Unexpected error:%@", error);
+    }
+    
+    if (alertMessage) {
+        [[[UIAlertView alloc] initWithTitle:alertTitle
+                                    message:alertMessage
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+    }
+}
+
+
 
 @end
