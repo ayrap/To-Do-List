@@ -9,9 +9,12 @@
 #import "SettingsTableViewController.h"
 #import "SettingCell.h"
 #import "Constants.h"
+#import "AppDelegate.h"
 #import <MessageUI/MessageUI.h>
 
-@interface SettingsTableViewController ()<MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
+@interface SettingsTableViewController ()<MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>{
+    AppDelegate *appdelegate;
+}
 @end
 
 @implementation SettingsTableViewController
@@ -28,6 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -136,6 +140,9 @@
                                             @"Share by Email", nil];
             actionSheet2.tag = 2;
             [actionSheet2 showInView:self.view];
+        }
+        if(indexPath.row ==2){
+            [appdelegate logoutUser];
         }
     }
 }

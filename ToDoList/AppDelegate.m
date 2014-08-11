@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "TabBarController.h"
+#import "ListTableViewController.h"
+#import "Constants.h"
 
 @implementation AppDelegate
 
@@ -17,12 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    
     self.window.backgroundColor = [UIColor whiteColor];
-    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    ViewController *viewController = [[ViewController alloc] init];
-    window.rootViewController = viewController;
-    [window makeKeyAndVisible];
     sleep(2);
     
     // notification
@@ -30,6 +28,18 @@
     if (locationNotification) {
         application.applicationIconBadgeNumber = 0;
     }
+    
+    
+    //check if logged in
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([[defaults objectForKey:DEFAULTS_SAVED_USER_NAME] length]>0) {
+        TabBarController *listViewController = [[TabBarController alloc] init];
+        self.window.rootViewController = listViewController;
+    }
+    else {
+        [self goToHomePage];
+    }
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							
@@ -130,6 +140,7 @@
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 
+#pragma mark - Private methods
 
 -(NSArray*)getAllTodoItems
 {
@@ -154,5 +165,29 @@
     // Returning Fetched Records
     return fetchedRecords;
 }
+
+- (void)goToHomePage
+{
+    
+    ViewController *viewController = [[ViewController alloc] init];
+    self.window.rootViewController = viewController;
+
+}
+
+#pragma mark - Logout
+- (void)logoutUser
+{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:DEFAULTS_SAVED_USER_NAME];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    ViewController *viewController = [[ViewController alloc] init];
+    [UIView transitionWithView:self.window
+                      duration:0.75
+                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                    animations:^{
+                        self.window.rootViewController = viewController;
+                    }
+                    completion:nil];
+}
+
 
 @end

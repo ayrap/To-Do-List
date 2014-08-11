@@ -17,4 +17,5 @@
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 -(NSArray*)getAllTodoItems;
+- (void)logoutUser;
 @end
