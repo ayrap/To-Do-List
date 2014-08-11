@@ -122,6 +122,16 @@
         if(indexPath.row == 0){
             [self sendFeedback:@[@"ayrap@sourcepad.com"]];
         }
+        if(indexPath.row == 1){
+            UIActionSheet * actionSheet2 = [[UIActionSheet alloc] initWithTitle: nil
+                                                                       delegate: self
+                                                              cancelButtonTitle: @"Cancel"
+                                                         destructiveButtonTitle: nil
+                                                              otherButtonTitles: @"Share by Text Message",
+                                            @"Share by Email", nil];
+            actionSheet2.tag = 2;
+            [actionSheet2 showInView:self.view];
+        }
     }
 }
 
@@ -132,32 +142,52 @@
                                                 destructiveButtonTitle: nil
                                                      otherButtonTitles: @"Take Photo",
                                    @"Choose Existing Photo", nil];
-    
+    actionSheet.tag = 1;
     [actionSheet showFromRect: sender.frame inView: sender.superview animated: YES];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.allowsEditing = YES;
-    picker.delegate = self;
-    if (buttonIndex==actionSheet.cancelButtonIndex)
-    {
-        [actionSheet dismissWithClickedButtonIndex:actionSheet.cancelButtonIndex animated:YES];
-        
-    }
-    else if(buttonIndex==0)
-    {
-        
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [self presentViewController:picker animated:YES completion:NULL];
-
-    }
-    else if(buttonIndex==1)
-    {
-        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        [self presentViewController:picker animated:YES completion:NULL];
-        
+    switch(actionSheet.tag){
+        case 1:{
+            UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+            picker.allowsEditing = YES;
+            picker.delegate = self;
+            if (buttonIndex==actionSheet.cancelButtonIndex)
+            {
+                [actionSheet dismissWithClickedButtonIndex:actionSheet.cancelButtonIndex animated:YES];
+                
+            }
+            else if(buttonIndex==0)
+            {
+                
+                picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                [self presentViewController:picker animated:YES completion:NULL];
+                
+            }
+            else if(buttonIndex==1)
+            {
+                picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                [self presentViewController:picker animated:YES completion:NULL];
+                
+            }
+        }
+        case 2: {
+            if (buttonIndex==actionSheet.cancelButtonIndex)
+            {
+                [actionSheet dismissWithClickedButtonIndex:actionSheet.cancelButtonIndex animated:YES];
+                
+            }
+            else if(buttonIndex==0)
+            {
+                
+                
+            }
+            else if(buttonIndex==1)
+            {
+                [self sendFeedback:@[@"ayrap@sourcepad.com"]];
+            }
+        }
     }
 }
 
