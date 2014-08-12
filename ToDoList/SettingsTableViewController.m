@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import <MessageUI/MessageUI.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import <Social/Social.h>
 
 @interface SettingsTableViewController ()<MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>{
     AppDelegate *appdelegate;
@@ -203,6 +204,9 @@
             else if(buttonIndex==2){
                 [self shareViaFacebook];
             }
+            else if(buttonIndex==3){
+                [self postToTwitter];
+            }
         }
     }
 }
@@ -323,6 +327,16 @@
 		controller.messageComposeDelegate = self;
 		[self dismissViewControllerAnimated:NO completion:nil];
 	}
+}
+
+- (void) postToTwitter {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *tweetSheet = [SLComposeViewController
+                                               composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [tweetSheet setInitialText:@"Just sharing my Todo app."];
+        [self presentViewController:tweetSheet animated:YES completion:nil];
+    }
 }
 
 - (void) sendFeedback:(NSArray *)recipients
