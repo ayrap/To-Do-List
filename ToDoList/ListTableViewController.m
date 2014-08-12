@@ -41,6 +41,7 @@
     [super viewDidLoad];
     appdelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.fetchedRecordsArray = [appdelegate getAllTodoItems];
+    [appdelegate configureRestKit];
     [self reloadTable];
 
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -80,6 +81,7 @@
     // Return the number of rows in the section.
     //return [appdelegate.toDoItems count];
     return [self.fetchedRecordsArray count];
+    
 }
 
 
@@ -103,6 +105,7 @@
         cell.accessoryCheck.hidden = YES;
     }
      */
+    
     Item * record = [self.fetchedRecordsArray objectAtIndex:indexPath.row];
     cell.nameLabel.text = record.title;
     cell.descriptionLabel.text = record.detail;

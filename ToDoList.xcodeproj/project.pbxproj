@@ -32,6 +32,12 @@
 		E690937D1967B42400910177 /* check-mark.png in Resources */ = {isa = PBXBuildFile; fileRef = E690937C1967B42400910177 /* check-mark.png */; };
 		E69093811967B47800910177 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = E69093801967B47800910177 /* add.png */; };
 		E69181A11999F4A400628D69 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69181A01999F4A400628D69 /* Social.framework */; };
+		E69181B5199A00C900628D69 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E69181AC1999FF2D00628D69 /* libRestKit.a */; };
+		E69181B7199A00F200628D69 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69181B6199A00F200628D69 /* CFNetwork.framework */; };
+		E69181B9199A010A00628D69 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69181B8199A010A00628D69 /* MobileCoreServices.framework */; };
+		E69181BB199A011400628D69 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69181BA199A011400628D69 /* Security.framework */; };
+		E69181BD199A011C00628D69 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69181BC199A011C00628D69 /* SystemConfiguration.framework */; };
+		E69181C0199A0A8100628D69 /* ListAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E69181BF199A0A8100628D69 /* ListAPI.m */; };
 		E69E2FC0197E5E0100AA2031 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = E69E2FBF197E5E0100AA2031 /* avatar.png */; };
 		E69E2FC3197E9EFF00AA2031 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = E69E2FC2197E9EFF00AA2031 /* Item.m */; };
 		E69E2FC6197FB2FD00AA2031 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E69E2FC5197FB2FD00AA2031 /* User.m */; };
@@ -56,6 +62,41 @@
 			proxyType = 1;
 			remoteGlobalIDString = E671EBC319583AFB003102EE;
 			remoteInfo = ToDoList;
+		};
+		E69181AB1999FF2D00628D69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E69181A41999FF2D00628D69 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D1614564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		E69181AD1999FF2D00628D69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E69181A41999FF2D00628D69 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D2614564E820060A5C5;
+			remoteInfo = RestKitTests;
+		};
+		E69181AF1999FF2D00628D69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E69181A41999FF2D00628D69 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E62145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		E69181B11999FF2D00628D69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E69181A41999FF2D00628D69 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E78145651060060A5C5;
+			remoteInfo = RestKitFrameworkTests;
+		};
+		E69181B3199A00B700628D69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E69181A41999FF2D00628D69 /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -92,6 +133,13 @@
 		E690937C1967B42400910177 /* check-mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check-mark.png"; path = "../../../../check-mark.png"; sourceTree = "<group>"; };
 		E69093801967B47800910177 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = ../../../../../Desktop/IOSBasics/IOSBasics/Images.xcassets/add.png; sourceTree = "<group>"; };
 		E69181A01999F4A400628D69 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		E69181A41999FF2D00628D69 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = "../../../../Downloads/RestKit-0.20.3/RestKit.xcodeproj"; sourceTree = "<group>"; };
+		E69181B6199A00F200628D69 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		E69181B8199A010A00628D69 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		E69181BA199A011400628D69 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E69181BC199A011C00628D69 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E69181BE199A0A8100628D69 /* ListAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListAPI.h; sourceTree = "<group>"; };
+		E69181BF199A0A8100628D69 /* ListAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListAPI.m; sourceTree = "<group>"; };
 		E69E2FBF197E5E0100AA2031 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar.png; path = Images.xcassets/avatar.png; sourceTree = "<group>"; };
 		E69E2FC1197E9EFF00AA2031 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		E69E2FC2197E9EFF00AA2031 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
@@ -124,8 +172,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E69181A11999F4A400628D69 /* Social.framework in Frameworks */,
+				E69181BD199A011C00628D69 /* SystemConfiguration.framework in Frameworks */,
+				E69181BB199A011400628D69 /* Security.framework in Frameworks */,
+				E69181B9199A010A00628D69 /* MobileCoreServices.framework in Frameworks */,
 				E6EFDEF8196FB6F800AD5DF2 /* CoreData.framework in Frameworks */,
+				E69181B7199A00F200628D69 /* CFNetwork.framework in Frameworks */,
+				E69181B5199A00C900628D69 /* libRestKit.a in Frameworks */,
+				E69181A11999F4A400628D69 /* Social.framework in Frameworks */,
 				E64B28051999183B00167B74 /* FacebookSDK.framework in Frameworks */,
 				E671EBCA19583AFB003102EE /* CoreGraphics.framework in Frameworks */,
 				E671EBCC19583AFB003102EE /* UIKit.framework in Frameworks */,
@@ -149,6 +202,7 @@
 		E671EBBB19583AFB003102EE = {
 			isa = PBXGroup;
 			children = (
+				E69181A41999FF2D00628D69 /* RestKit.xcodeproj */,
 				E671EBCD19583AFB003102EE /* ToDoList */,
 				E671EBEC19583AFC003102EE /* ToDoListTests */,
 				E671EBC619583AFB003102EE /* Frameworks */,
@@ -168,6 +222,10 @@
 		E671EBC619583AFB003102EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E69181BC199A011C00628D69 /* SystemConfiguration.framework */,
+				E69181BA199A011400628D69 /* Security.framework */,
+				E69181B8199A010A00628D69 /* MobileCoreServices.framework */,
+				E69181B6199A00F200628D69 /* CFNetwork.framework */,
 				E69181A01999F4A400628D69 /* Social.framework */,
 				E64B28041999183B00167B74 /* FacebookSDK.framework */,
 				E6EFDEF7196FB6F800AD5DF2 /* CoreData.framework */,
@@ -236,6 +294,17 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		E69181A51999FF2D00628D69 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E69181AC1999FF2D00628D69 /* libRestKit.a */,
+				E69181AE1999FF2D00628D69 /* RestKitTests.octest */,
+				E69181B01999FF2D00628D69 /* RestKit.framework */,
+				E69181B21999FF2D00628D69 /* RestKitFrameworkTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		E6EFDEEA196D963600AD5DF2 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +361,8 @@
 		E6F60392196411EE008697FA /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				E69181BE199A0A8100628D69 /* ListAPI.h */,
+				E69181BF199A0A8100628D69 /* ListAPI.m */,
 				E6F603861962FB64008697FA /* ToDoItem.h */,
 				E6F603871962FB64008697FA /* ToDoItem.m */,
 			);
@@ -312,6 +383,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				E69181B4199A00B700628D69 /* PBXTargetDependency */,
 			);
 			name = ToDoList;
 			productName = ToDoList;
@@ -362,6 +434,12 @@
 			mainGroup = E671EBBB19583AFB003102EE;
 			productRefGroup = E671EBC519583AFB003102EE /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E69181A51999FF2D00628D69 /* Products */;
+					ProjectRef = E69181A41999FF2D00628D69 /* RestKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E671EBC319583AFB003102EE /* ToDoList */,
@@ -369,6 +447,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E69181AC1999FF2D00628D69 /* libRestKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKit.a;
+			remoteRef = E69181AB1999FF2D00628D69 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E69181AE1999FF2D00628D69 /* RestKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitTests.octest;
+			remoteRef = E69181AD1999FF2D00628D69 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E69181B01999FF2D00628D69 /* RestKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestKit.framework;
+			remoteRef = E69181AF1999FF2D00628D69 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E69181B21999FF2D00628D69 /* RestKitFrameworkTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitFrameworkTests.octest;
+			remoteRef = E69181B11999FF2D00628D69 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E671EBC219583AFB003102EE /* Resources */ = {
@@ -417,6 +526,7 @@
 				E6F6038E1963FA5E008697FA /* ListTableViewController.m in Sources */,
 				E6F603791962CC0B008697FA /* TabBarController.m in Sources */,
 				E69E2FC6197FB2FD00AA2031 /* User.m in Sources */,
+				E69181C0199A0A8100628D69 /* ListAPI.m in Sources */,
 				E671EBD819583AFB003102EE /* AppDelegate.m in Sources */,
 				E6EFDEF0196D9B1E00AD5DF2 /* ToDoModel.xcdatamodeld in Sources */,
 				E69E2FCB1988E06D00AA2031 /* SettingsTableViewController.m in Sources */,
@@ -440,6 +550,11 @@
 			isa = PBXTargetDependency;
 			target = E671EBC319583AFB003102EE /* ToDoList */;
 			targetProxy = E671EBEA19583AFC003102EE /* PBXContainerItemProxy */;
+		};
+		E69181B4199A00B700628D69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = E69181B3199A00B700628D69 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -554,7 +669,13 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ToDoList/ToDoList-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
+				);
 				INFOPLIST_FILE = "ToDoList/ToDoList-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -573,7 +694,13 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ToDoList/ToDoList-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
+				);
 				INFOPLIST_FILE = "ToDoList/ToDoList-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

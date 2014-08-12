@@ -11,6 +11,7 @@
 #import "TabBarController.h"
 #import "ListTableViewController.h"
 #import "Constants.h"
+#import "ToDoItem.h"
 #import <FacebookSDK/FacebookSDK.h>
 
 @implementation AppDelegate
@@ -290,5 +291,28 @@
                     completion:nil];
 }
 
+#pragma mark - API
+-(void) configureRestKit {
+    // initialize AFNetworking HTTPClient
+    NSURL *baseURL = [NSURL URLWithString:@"http://localhost:3000/"];
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
+        
+    // initialize RestKit
+    RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
+        
+    // setup object mappings
+    RKObjectMapping *listMapping = [RKObjectMapping mappingForClass:[ToDoItem class]];
+    [listMapping addAttributeMappingsFromArray:@[@"title"]];
+        
+    // register mappings with the provider using a response descriptor
+    RKResponseDescriptor *responseDescriptor =
+    [RKResponseDescriptor responseDescriptorWithMapping:listMapping
+                                                 method:RKRequestMethodGET
+                                            pathPattern:@"/tasks"
+                                                keyPath:@"title"
+                                            statusCodes:[NSIndexSet indexSetWithIndex:200]];
+
+    [objectManager addResponseDescriptor:responseDescriptor];
+}
 
 @end

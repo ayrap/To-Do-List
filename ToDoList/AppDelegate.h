@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ToDoItem.h"
+#import <RestKit/RestKit.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -17,5 +18,6 @@
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 -(NSArray*)getAllTodoItems;
-- (void)logoutUser;
+-(void)logoutUser;
+-(void)configureRestKit;
 @end
